@@ -1,0 +1,23 @@
+.panel {
+    @apply bg-white border border-stone-200 rounded;
+}
+
+.panel-header {
+    @apply p-4 border-b border-stone-200 font-medium flex items-center;
+}
+
+.panel-title {
+    @apply text-lg;
+}
+
+.pabel-actions {
+    @apply ml-auto;
+}
+
+.panel-content {
+    @apply p-4;
+}
+
+.panel-footer {
+    @apply p-4;
+}

@@ -1,3 +1,25 @@
 {
-  "extends": "next/core-web-vitals"
+    "extends": ["next/core-web-vitals", "plugin:prettier/recommended"],
+    "plugins": ["eslint-plugin-import-helpers"],
+    "rules": {
+        "prettier/prettier": [
+            "error"
+        ],
+        "import-helpers/order-imports": [
+            "warn",
+            {
+                "newlinesBetween": "always",
+                "groups": [
+                    ["/^react/", "/^next/", "/@next/"],
+                    "module",
+                    "/^@shared/",
+                    ["parent", "sibling", "index"]
+                ],
+                "alphabetize": {
+                    "order": "asc",
+                    "ignoreCase": true
+                }
+            }
+        ]
+    }
 }

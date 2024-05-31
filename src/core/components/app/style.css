@@ -1,0 +1,23 @@
+.app {
+    @apply bg-stone-100 h-screen flex flex-col overflow-hidden;
+}
+
+.app-header {
+    @apply h-12 border-b border-stone-200 px-4 flex items-center;
+}
+
+.app-wrapper {
+    @apply flex-1 flex flex-row overflow-hidden;
+}
+
+.app-menu {
+    scrollbar-width: thin;
+    @apply w-64 border-r border-stone-200 overflow-auto}
+
+.app-content {
+    @apply flex-1 overflow-auto;
+}
+
+.app-sidebar {
+    @apply w-64 border-l border-stone-200;
+}

@@ -1,0 +1,12 @@
+.datagrid {
+    @apply w-full border-l border-t border-stone-200 border-separate border-spacing-0 rounded-sm
+}
+
+.datagrid th,
+.datagrid td {
+    @apply bg-white border-r border-b border-stone-200 text-left font-normal p-2
+}
+
+.datagrid th {
+    @apply bg-stone-100 font-medium
+}
