@@ -3,6 +3,8 @@ import { HTMLAttributes } from 'react';
 import clsx from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
+import './style.css';
+
 type Props = HTMLAttributes<HTMLDivElement> & {};
 
 export const Page = ({ className, children }: Props) => {
@@ -11,14 +13,7 @@ export const Page = ({ className, children }: Props) => {
 
 export const PageHeader = ({ className, children }: Props) => {
     return (
-        <div
-            className={twMerge(
-                clsx(
-                    'page-header h-12 px-4 border-b border-stone-200 flex items-center',
-                    className,
-                ),
-            )}
-        >
+        <div className={twMerge(clsx('page-header', className))}>
             {children}
         </div>
     );
@@ -26,19 +21,13 @@ export const PageHeader = ({ className, children }: Props) => {
 
 export const PageTitle = ({ className, children }: Props) => {
     return (
-        <div
-            className={twMerge(
-                clsx('page-title text-lg font-medium', className),
-            )}
-        >
-            {children}
-        </div>
+        <div className={twMerge(clsx('page-title', className))}>{children}</div>
     );
 };
 
 export const PageActions = ({ className, children }: Props) => {
     return (
-        <div className={twMerge(clsx('page-actions ml-auto', className))}>
+        <div className={twMerge(clsx('page-actions', className))}>
             {children}
         </div>
     );
@@ -46,7 +35,7 @@ export const PageActions = ({ className, children }: Props) => {
 
 export const PageContent = ({ className, children }: Props) => {
     return (
-        <div className={twMerge(clsx('page-content p-4', className))}>
+        <div className={twMerge(clsx('page-content', className))}>
             {children}
         </div>
     );
@@ -54,7 +43,7 @@ export const PageContent = ({ className, children }: Props) => {
 
 export const PageFooter = ({ className, children }: Props) => {
     return (
-        <div className={twMerge(clsx('page-footer p-4', className))}>
+        <div className={twMerge(clsx('page-footer', className))}>
             {children}
         </div>
     );
