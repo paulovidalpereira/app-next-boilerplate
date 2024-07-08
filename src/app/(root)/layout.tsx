@@ -1,11 +1,13 @@
 import clsx from 'clsx';
 import { App, AppHeader, AppMenu, AppWrapper } from 'core/components/app';
-import { AppContent } from 'core/components/app/app';
+import { AppContainer, AppContent } from 'core/components/app/app';
 import { Menu } from 'core/components/menu';
+import { Search } from 'core/components/search';
+import { Avatar } from 'core/components/ui/avatar';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
     return (
-        <App>
+        <AppContainer>
             <AppHeader>
                 <a
                     className={clsx(
@@ -16,16 +18,10 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                     App Boilerplate
                 </a>
                 <div className="ml-auto w-96">
-                    <input
-                        type="text"
-                        className="bg-white py-1.5 px-2 border border-stone-200 rounded block w-full focus:outline-none focus:border-stone-600 focus:ring-1 focus:ring-inset focus:ring-stone-600 shadow-sm"
-                        placeholder="Search..."
-                    />
+                    <Search />
                 </div>
                 <div className="ml-auto">
-                    <div className="avatar bg-stone-300 h-7 w-7 font-medium flex items-center justify-center rounded-full overflow-hidden">
-                        A
-                    </div>
+                    <Avatar />
                 </div>
             </AppHeader>
             <AppWrapper>
@@ -34,7 +30,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                 </AppMenu>
                 <AppContent>{children}</AppContent>
             </AppWrapper>
-        </App>
+        </AppContainer>
     );
 };
 

@@ -7,7 +7,25 @@ import './style.css';
 
 type Props = HTMLAttributes<HTMLDivElement> & {};
 
-export const App = ({ className, children, ...props }: Props) => {
+type Page = {
+    header?: React.ReactNode;
+    menu?: React.ReactNode;
+    children: React.ReactNode;
+};
+
+export const App = ({ header, menu, children }: Page) => {
+    return (
+        <AppContainer>
+            <AppHeader>{header}</AppHeader>
+            <AppWrapper>
+                <AppMenu>{menu}</AppMenu>
+                <AppContent>{children}</AppContent>
+            </AppWrapper>
+        </AppContainer>
+    );
+};
+
+export const AppContainer = ({ className, children, ...props }: Props) => {
     return (
         <div className={twMerge(clsx('app', className))} {...props}>
             {children}

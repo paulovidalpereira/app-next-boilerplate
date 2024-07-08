@@ -7,7 +7,25 @@ import './style.css';
 
 type Props = HTMLAttributes<HTMLDivElement> & {};
 
-export const Page = ({ className, children }: Props) => {
+type Page = {
+    title: string;
+    actions?: React.ReactNode;
+    children: React.ReactNode;
+};
+
+export const Page = ({ title, actions, children }: Page) => {
+    return (
+        <PageConainer>
+            <PageHeader>
+                <PageTitle>{title}</PageTitle>
+                <PageActions>{actions}</PageActions>
+            </PageHeader>
+            <PageContent className="space-y-4">{children}</PageContent>
+        </PageConainer>
+    );
+};
+
+export const PageConainer = ({ className, children }: Props) => {
     return <div className={twMerge(clsx('page', className))}>{children}</div>;
 };
 

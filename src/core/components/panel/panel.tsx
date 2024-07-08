@@ -1,47 +1,43 @@
-import { HTMLAttributes } from 'react';
-
-import { VariantProps, cva } from 'class-variance-authority';
-import { cn } from 'core/utils/cn';
-
 import './style.css';
 
-const panelVariants = cva('panel', {
-    variants: {
-        variant: {
-            slim: 'panel--slim',
-        },
-        size: {},
-        defaultVariants: {},
-    },
-});
+type Panel = {
+    title: string;
+    actions?: React.ReactNode;
+    children?: React.ReactNode;
+};
 
-type PanelProps = HTMLAttributes<HTMLDivElement> &
-    VariantProps<typeof panelVariants> & {
-        icon?: React.ReactNode;
-    };
-
-const Panel = ({
-    className,
-    variant,
-    size,
-    icon,
-    children,
-    ...props
-}: PanelProps) => {
+const Panel = ({ title, actions, children }: Panel) => {
     return (
-        <div
-            className={cn(panelVariants({ variant, size, className }))}
-            {...props}
-        >
-            {children}
-        </div>
+        <PanelContainer>
+            <PanelHeader>
+                <PanelTitle>{title}</PanelTitle>
+                {actions && <PanelActions>{actions}</PanelActions>}
+            </PanelHeader>
+            <PanelContent>{children}</PanelContent>
+        </PanelContainer>
     );
 };
 
-Panel.displayName = 'Panel';
+export const PanelContainer = ({ children }: { children: React.ReactNode }) => {
+    return <div className="panel">{children}</div>;
+};
 
-export { Panel, panelVariants };
-
-const PanelHeader = ({ children }: { children: React.ReactNode }) => {
+export const PanelHeader = ({ children }: { children: React.ReactNode }) => {
     return <div className="panel-header">{children}</div>;
+};
+
+export const PanelTitle = ({ children }: { children: React.ReactNode }) => {
+    return <div className="panel-title">{children}</div>;
+};
+
+export const PanelActions = ({ children }: { children: React.ReactNode }) => {
+    return <div className="panel-actions">{children}</div>;
+};
+
+export const PanelContent = ({ children }: { children: React.ReactNode }) => {
+    return <div className="panel-content">{children}</div>;
+};
+
+export const PanelFooter = ({ children }: { children: React.ReactNode }) => {
+    return <div className="panel-footer">{children}</div>;
 };
