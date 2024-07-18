@@ -1,5 +1,6 @@
 'use client';
 
+import { Page } from 'core/components';
 import { Datagrid } from 'core/components/datagrid';
 import { columns } from 'modules/constants/column';
 
@@ -7,8 +8,8 @@ import { usersService } from '../services/users-service';
 
 export const UsersView = () => {
     return (
-        <div>
+        <Page title="Users">
             <Datagrid resource={usersService} columns={columns} />
-        </div>
+        </Page>
     );
 };

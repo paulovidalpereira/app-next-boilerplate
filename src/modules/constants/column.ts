@@ -1,6 +1,6 @@
 import { Column } from 'core/components/datagrid';
+import { dateFormat } from 'core/utils/date-format';
 import { User } from 'modules/users/types';
-import { dateFormat } from 'utils/date-format';
 
 export const columns: Column<User>[] = [
     {

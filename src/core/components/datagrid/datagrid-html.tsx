@@ -1,22 +1,34 @@
+import { Filter, RefreshCcw, RefreshCw } from 'lucide-react';
+
 import { Button } from '../ui/button';
 import { useDatagrid } from './datagrid';
 
 export const DatagridHtml = () => {
     const { columns, rowactions, massactions, result } = useDatagrid();
 
-    if (result.isLoading) {
-        return <div>Loading...</div>;
-    }
-
-    if (result.isError) {
-        return <div>Error</div>;
-    }
-
     return (
         <div>
-            <div className="p-2 flex justify-between items-center">
-                <Button onClick={() => result.refetch()}>refresh</Button>
-                <div>{result.data?.total}</div>
+            <div className="mb-2 flex justify-between items-center">
+                <div className="space-x-1">
+                    <Button
+                        onClick={() => result.refetch()}
+                        variant={'primary'}
+                        className="px-2"
+                        loading={result.isFetching}
+                    >
+                        <RefreshCw
+                            size={16}
+                            className={result.isFetching ? 'animate-spin' : ''}
+                        />
+                    </Button>
+                    <Button variant={'primary'} className="px-2">
+                        <Filter size={16} />
+                    </Button>
+                </div>
+                <div>
+                    <span>Page: {result.data?.current_page}</span>{' '}
+                    <span>Total: {result.data?.total}</span>
+                </div>
             </div>
             <table className="datagrid">
                 <thead>
@@ -42,9 +54,19 @@ export const DatagridHtml = () => {
                             </td>
                         </tr>
                     )}
+                    {result.isError && (
+                        <tr>
+                            <td
+                                className="border-r border-b"
+                                colSpan={columns.length}
+                            >
+                                error...
+                            </td>
+                        </tr>
+                    )}
                     {!result.isLoading &&
                         !result.isError &&
-                        result.data?.items.map((item) => (
+                        result.data.items.map((item) => (
                             <tr key={item.id}>
                                 {columns.map((column) => (
                                     <td

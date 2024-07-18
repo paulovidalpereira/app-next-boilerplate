@@ -10,8 +10,8 @@ import { DatagridHtml } from './datagrid-html';
 type DatagridProps = {
     resource: Resource;
     columns: any[];
-    rowactions: string[];
-    massactions: string[];
+    rowactions?: string[];
+    massactions?: string[];
 };
 
 type DatagridContext = DatagridProps & {
