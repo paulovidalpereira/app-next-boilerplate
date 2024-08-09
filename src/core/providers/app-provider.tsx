@@ -1,9 +1,24 @@
-"use client";
+'use client';
 
-import { createContext } from "react";
+import { createContext, useContext, useState } from 'react';
 
 const AppContext = createContext({});
 
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
-  return <AppContext.Provider value={{}}>{children}</AppContext.Provider>;
+    const [navigation, setNavigation] = useState({});
+
+    const addNavigation = (navigation: any) => {
+        setNavigation((prev) => ({ ...prev, ...navigation }));
+    };
+
+    const values = {
+        navigation,
+        addNavigation,
+    };
+
+    return <AppContext.Provider value={values}>{children}</AppContext.Provider>;
+};
+
+export const useApp = () => {
+    return useContext(AppContext);
 };
