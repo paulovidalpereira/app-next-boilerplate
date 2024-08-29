@@ -11,7 +11,7 @@ const apiSetup = () => {
     });
 
     api.interceptors.request.use(async (config) => {
-        const token = getCookie('nextauth.token');
+        const token = getCookie('token');
 
         config.headers['Authorization'] = `Bearer ${token}`;
 

@@ -2,7 +2,7 @@
 
 import { Page } from 'core/components';
 import { Datagrid } from 'core/components/datagrid';
-import { columns } from 'modules/constants/column';
+import { columns } from 'modules/users/constants/column';
 
 import { usersService } from '../services/users-service';
 

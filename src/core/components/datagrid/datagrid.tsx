@@ -2,10 +2,11 @@
 
 import { createContext, useContext, useMemo } from 'react';
 
-import './style.css';
 import { ColumnDef } from '@tanstack/react-table';
 
 import { DatagridHtml } from './datagrid-html';
+
+import './style.css';
 
 type DatagridProps = {
     resource: Resource;

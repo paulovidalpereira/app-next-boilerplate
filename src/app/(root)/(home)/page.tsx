@@ -1,5 +1,1 @@
-import DashboardView from 'modules/dashboard/views/DashboardView';
-
-export default function DashboardPage() {
-    return <DashboardView />;
-}
+export { DashboardContainer as default } from 'modules/dashboard';

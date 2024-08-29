@@ -15,7 +15,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                         'hover:bg-stone-200',
                     )}
                 >
-                    App Boilerplate
+                    {process.env.APP_NAME}
                 </a>
                 <div className="ml-auto w-96">
                     <Search />
