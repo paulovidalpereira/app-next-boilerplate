@@ -11,7 +11,7 @@ type SidebarItem = {
 
 export const SIDEBAR_ITEMS: SidebarItem[] = [
     {
-        label: 'ADMIN',
+        label: 'Admin',
         key: 'admin',
         parent: 'root',
     },

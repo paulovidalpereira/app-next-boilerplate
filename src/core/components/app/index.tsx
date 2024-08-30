@@ -1,1 +1,1 @@
-export { App, AppHeader, AppMenu, AppWrapper, AppMain } from"./app"; 
+export { App, AppHeader, AppMenu, AppWrapper, AppContent } from './app';

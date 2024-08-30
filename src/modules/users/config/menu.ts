@@ -4,5 +4,6 @@ export const menu = [
         key: 'admin.users',
         parent: 'admin',
         path: '/admin/users',
+        order: 1,
     },
 ];

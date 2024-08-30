@@ -1,3 +1,5 @@
+'use client';
+
 import { Button, Page, Panel, PanelContainer } from 'core/components';
 
 const DashboardView = () => {
