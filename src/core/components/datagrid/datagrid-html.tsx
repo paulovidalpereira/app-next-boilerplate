@@ -65,7 +65,7 @@ export const DatagridHtml = () => {
                         </tr>
                     )}
                     {result.data &&
-                        result.data.items.map((item) => (
+                        result.data.items.map((item: any) => (
                             <tr key={item.id}>
                                 {columns.map((column) => (
                                     <td
