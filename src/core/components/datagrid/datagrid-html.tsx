@@ -57,15 +57,14 @@ export const DatagridHtml = () => {
                     {result.isError && (
                         <tr>
                             <td
-                                className="border-r border-b"
+                                className="border-r border-b !bg-red-100 text-red-700"
                                 colSpan={columns.length}
                             >
                                 error...
                             </td>
                         </tr>
                     )}
-                    {!result.isLoading &&
-                        !result.isError &&
+                    {result.data &&
                         result.data.items.map((item) => (
                             <tr key={item.id}>
                                 {columns.map((column) => (

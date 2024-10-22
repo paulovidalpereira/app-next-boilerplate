@@ -8,7 +8,7 @@ const Paginate = (params: Paginate) => {
     return useQuery({
         queryKey: ['users', { params }],
         queryFn: async () => {
-            const { data } = await api.get('/users', {
+            const { data } = await api.get('/api/v1/users', {
                 params,
             });
 
